@@ -1,0 +1,34 @@
+# Norbert Reschke 1988, 1993, 1997,2010-08-20, 2010-12-29, 2011-02-06, 2011-11-01, 2012-10-01, 2012-10-15
+bisheriger Verlauf
+1988 H.A. lässt für Ch. von mir ein pyramidenförmiges Schränkchen bauen. 1/4 der Pyramide ist als Tür entlang der Höhe einer Seite aufklappbar.
+Problemlösung rechnerisch mittels Winkelfunktion und Satz des Pythagoras
+1993 Veranschaulichung im Unterricht bei Prof. Michelsen Aachen, Darstellung des Pyramidenproblems als Unterrichtsstunde
+Papiermodell mehrteilig, Handmodell mit den Extremwerten der Höhe, Berechnung wie oben und per Vektorrechnung in Fortran
+1997 Examensunterrichtsstunde Ermittlung der Schmiege Albrecht-Dürer-Schule, Düsseldorf
+Papiermodell (gefaltet und eingeschnitten), Berechnung per Taschenrechner wie 1988,
+Folgestunde zeichnerische Ermittlung Umklappung
+2010 räumliche Darstellung in OpenGL und Ruby, eingeschnittene Papiermodelle
+
+Problem:
+Ziel => Bau einer Pyramide aus Platenwerkstoff (gerade, quadratischer Grundriss)
+Problem => Winkel an den vier Pyramidenseiten (Seite zu Seite) 
+
+Info =>
+Eine Pyramide mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade,
+wenn die Höhe h durch den Mittelpunkt der Grundfläche verläuft, damit sind alle Grate gleich lang.
+Die Platten sind an ihren Kantenflächen verbunden, nur eine Haarfuge ist sichtbar!
+
+Problematisierung =>
+Eingrenzung des Wertebereiches.
+Die Hände dienen als Modell für zwei Pyramidenseiten. Die Extremwerte lassen sich mit einer unendlich hohen und einer gegen Null strebenden Höhe darstellen.
+Welche Schmiege hat eine unendliche hohe Pyramide?
+Welche Schmiege hat eine extrem flache Pyramide?
+Kontrollfragen =>
+Kann die Schmiege einer Seite 40° betragen?
+Liegt die Schmige immer zwischen 45° und 90°?
+Ist die Schmiege unabhängig von der Höhe immer gleich groß?
+
+Überprüfung =>
+Berechnung verschieden hoher Pyramiden
+Zeichnung verschieden hoher Pyramiden
+Kontolle des Werkstücks

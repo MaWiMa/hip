@@ -1,0 +1,39 @@
+#Pyramide Punkte fuer 3dmodell n.reschke 
+#Punkte Grundflaeche
+v 0 0 0
+v 1 0 0
+v 1 1 0
+v 0 1 0
+# Punkt Spitze
+v 0.5 0.5 1
+# Punkt Grathoehe
+v 0.1667 0.1667 0.3333
+# Punkt Mitte Grundflaeche
+v 0.5 0.5 0
+
+#achse
+#v 0.5 0 0
+#v 0  0.5 0
+
+# Grundflaeche
+f 1 2 3 4 
+# Diagonalen
+f 3 1
+f 2 4
+
+#Hoehe
+l 7 5
+# Grate
+l 1 5
+l 2 5
+l 3 5
+l 4 5
+# Garthoehe der Seiten
+l 2 6
+l 4 6
+# Grathoehe zur Mitte Grundflaeche
+l 6 7
+
+
+
+
