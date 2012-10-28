@@ -10,8 +10,6 @@
 
 require 'opengl'
 require 'matrix'
-#require 'mathn'
-
 
 ###
 zoom = -3.0 # keyboard n,N; i,I;o,O 
@@ -159,7 +157,7 @@ end
 
 
 
-def init(width=640,height=480)
+def init(width=16,height=9)
 
 #glClearColor(red,green,blue,alpha)	# Hintergrundfarbe alpha 0.0 -> transparent;alpha 1.0 -> undurchsichtig
 #glClearColor(1.0,1.0,1.0,1.0)		# Hintergrundfarbe weiss
@@ -346,51 +344,10 @@ end
 
 
 
-# def resize(width, height)
-#    GL.Viewport(0, 0, width, height)
-
-#    GL.MatrixMode(GL::PROJECTION)
- #   GL.LoadIdentity()
-  #  GLU.Perspective(@fov, width.to_f() / height.to_f(), 0.1, 10000.0)
-   # 
-    #GL.MatrixMode(GL::MODELVIEW)
-    #GL.LoadIdentity()
-
-
-#reshape = lambda do |w,h|
-#glMatrixMode(GL_PROJECTION)
-#glViewport(0,0,w,h)
-#glLoadIdentity()
-#width = 0.5
-#height = 0.5 * h/w;
-#glFrustum(-width,width,-height,height,1.0,2000.0)
-#glMatrixMode(GL_MODELVIEW)
-#glViewport(0,0,w,h)
-#end
-
-
 
 reshape = lambda do |width,height|
-#w = 1 if h ==0
-
-#w = glutGet(GLUT_SCREEN_WIDTH)
-#h = glutGet(GLUT_SCREEN_HEIGHT)
-
-
-#resize_scene2(GLsizei width, GLsizei height)
-#{
-#	glViewport(0,0,fsW,fsH);
-#	glMatrixMode(GL_PROJECTION);
-#	glLoadIdentity();
-#	glOrtho(0,WINDOW_W,0,WINDOW_H,-1,1);
-#	glMatrixMode(GL_MODELVIEW);
-#}
-
-
-
-
-
-glViewport 0, 0, width,height
+end
+#widthglViewport 0, 0, width,height
 
 ###
 #glEnable(GL_BLEND)
@@ -404,13 +361,13 @@ glViewport 0, 0, width,height
 #glPolygonMode(GL_FRONT,GL_FILL)
 #
 # Viewing
-glMatrixMode(GL_PROJECTION)
-glLoadIdentity()
-gluPerspective(35.0,width/height,0.01,10000.0)
-glMatrixMode(GL_MODELVIEW)
-glLoadIdentity()
+#glMatrixMode(GL_PROJECTION)
+#glLoadIdentity()
+#gluPerspective(35.0,width/height,0.01,10000.0)
+#glMatrixMode(GL_MODELVIEW)
+#glLoadIdentity()
 ###     
-end
+#end
 
 
 ############ display
@@ -667,8 +624,8 @@ end
 glutInit
 #glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE)
 glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
-glutInitWindowSize(640,480)
-glutInitWindowPosition(100, 100)
+glutInitWindowSize(600,600)
+glutInitWindowPosition(600, 0)
 glutCreateWindow("Pyramid Project")
 #init
 glutDisplayFunc(display)
