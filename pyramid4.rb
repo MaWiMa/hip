@@ -4,8 +4,8 @@
 # gerade Pyramide mit quadratischer Grundfläche
 # Eine Pyramide mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade, wenn die Höhe h durch den Mittelpunkt der Grundfläche verläuft (damit sind alle Grate gleich lang).
 
-require_relative 'pyrcalc' # ruby 1.9.3
-#require 'pyrcalc' # ruby < 1.9.2
+require_relative 'pyrcalc'           # ruby 1.9.3
+#require 'pyrcalc'                   # ruby < 1.9.2
 
 require 'opengl'
 require 'matrix'
@@ -19,28 +19,35 @@ puts "Beispiel: #{__FILE__} 100 50"
 exit
 end
 
-###
-a = ARGV[0].to_f
-h = ARGV[1].to_f
+a = ARGV[0].to_f                     # 1. Parameter der Eingabe 
+h = ARGV[1].to_f                     # 2. Parameter der Eingabe
 
-
-if (a == 0.0 or h == 0.0) and h != a
+if (((a == 0.0 or h == 0.0) and h != a) or ARGV[0] == "-h" or ARGV[0] == "--h")
 puts "Bitte geben Sie zwei Parameter an!"
 puts "Notation: <Dateiname> <Grundseite> <Höhe>"
 puts "Beispiel: #{__FILE__} 100 50"
+puts ""
+puts "Steuerung per Tastatur nachdem das Grafikfenster den Fokus erhalten hat"
+puts "< s > oder < - >           -> reduzieren die Höhe der Pyramide"
+puts "< b > oder < + >           -> vergrößern die Höhe der Pyramide"
+puts "< n >                     -> Zoom in die Ausgangsperspektive"
+puts "< o >                     -> Zoom-Out"
+puts "< i >                     -> Zoom-In"
+puts "up, down, left, right     -> drehen der Pyramide"
+puts "< esc >                   -> Exit"
 exit
 end
 
 
-if (a == 0 and h == 0) # beide Werte 0, z.B. keine Parameterangabe, dann wird 1.0 gesetzt, s. b==a
+if (a == 0 and h == 0)               # beide Werte 0, z.B. keine Parameterangabe, dann wird 1.0 gesetzt, s. b==a
 a,h = 1.0,1.0
 end
 
 
 ###
-zoom = -3.0*a       # keyboard n,N; i,I;o,O 
-x_rot = -90.0		# x Variable für glRotate(); Rotationsstartwinkel um die X-Achse
-z_rot = -130.0		# z Variable für glRotate(); Rotationsstartwinkel um die Z-Achse
+zoom = -3.0*a                        # keyboard n,N; i,I;o,O 
+x_rot = -90.0		                 # x Variable für glRotate(); Rotationsstartwinkel um die X-Achse
+z_rot = -130.0		                 # z Variable für glRotate(); Rotationsstartwinkel um die Z-Achse
 ###
 
 pyr = Pyramid.new(a,h)
@@ -50,7 +57,7 @@ def init(width=16,height=10)
 glEnable(GL_BLEND)
 glDepthFunc(GL_LEQUAL)
 
-glBlendFunc(GL_SRC_ALPHA,GL_ONE) # transparent
+glBlendFunc(GL_SRC_ALPHA,GL_ONE)     # transparent
 
 glEnable(GL_LIGHTING)
 glEnable(GL_LIGHT0)
@@ -70,11 +77,11 @@ end
 ############ display
 display = Proc.new do
 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT )
-glLoadIdentity		# Matrix einlesen/speichern
-glTranslate(0.0,-0.5*a,zoom)	# Verschieben, Zentrieren
-glRotate(x_rot,a,0.0,0.0)	# um die X-Achse drehen 
-glRotate(z_rot*0.5,0.0,0.0,h)	# um die Z-Achse drehen
-glTranslate(-0.5*a,-0.5*a, 0.0)	# z-Rotationsachse ins Zentrum des Kubus verschieben
+glLoadIdentity                       # Matrix einlesen/speichern
+glTranslate(0.0,-0.5*a,zoom)         # Verschieben, Zentrieren
+glRotate(x_rot,a,0.0,0.0)            # um die X-Achse drehen 
+glRotate(z_rot*0.5,0.0,0.0,h)        # um die Z-Achse drehen
+glTranslate(-0.5*a,-0.5*a, 0.0)      # z-Rotationsachse ins Zentrum des Kubus verschieben
 ### draw this
 
 pyr.draw_omega
@@ -135,7 +142,7 @@ keyboard = Proc.new do|key, x, y|
    pyr.output
    glutPostRedisplay	  
 =end
-  when ?s,?S #reduziere die Höhe
+  when ?s,?S,?-                         #reduziere die Höhe
    if h > 0.01 then			
 	h = h-0.1*h 
     elsif pyr.omega < 89.99999
@@ -150,7 +157,7 @@ keyboard = Proc.new do|key, x, y|
   glutPostRedisplay	
   end
 
-		when ?b,?B #erhöhe die Höhe
+		when ?b,?B,?+                   #vergrößere die Höhe
 		if h < 0.01  then
 		h = h+0.5*h
 		elsif h < 20000.0 then			
@@ -167,7 +174,7 @@ keyboard = Proc.new do|key, x, y|
 
 
 
-		when ?n,?N #zoom Ausgangsperspektive
+		when ?n,?N                   #zoom Ausgangsperspektive
 			zoom = -3.0 *a
 			x_rot = -90.0
 			z_rot = -130.0
@@ -175,16 +182,16 @@ keyboard = Proc.new do|key, x, y|
 				pyr.output
 			glutPostRedisplay	
 
-		when ?o,?O #zoom out
+		when ?o,?O                   #zoom out
 			zoom = zoom -0.03*a
 			glutPostRedisplay	
  puts zoom
-		when ?i,?I #zoom in
+		when ?i,?I                   #zoom in
 			zoom = zoom +0.03*a
 			glutPostRedisplay	
 puts zoom
 
-		when ?\e  # Escape key
+		when ?\e                     # Escape key
 		puts "ESC pressed Programm is stopped"		
 		exit
 	end
