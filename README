@@ -11,7 +11,7 @@ Folgestunde zeichnerische Ermittlung Umklappung
 
 Problem:
 Ziel => Bau einer Pyramide aus Plattenwerkstoff (gerade, quadratischer Grundriss)
-Problem => Winkel an den vier Pyramidenseiten (Seite zu Seite) 
+Problem => Winkel an den vier Pyramidenseiten (Kantenwinkel = 1/2 Winkel zwischen je 2 aneinandergrenzenden Seiten) 
 
 Info =>
 Eine Pyramide mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade,
