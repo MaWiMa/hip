@@ -10,7 +10,7 @@ Folgestunde zeichnerische Ermittlung Umklappung
 2010 räumliche Darstellung in OpenGL und Ruby, eingeschnittene Papiermodelle
 
 Problem:
-Ziel => Bau einer Pyramide aus Platenwerkstoff (gerade, quadratischer Grundriss)
+Ziel => Bau einer Pyramide aus Plattenwerkstoff (gerade, quadratischer Grundriss)
 Problem => Winkel an den vier Pyramidenseiten (Seite zu Seite) 
 
 Info =>
@@ -29,6 +29,7 @@ Liegt die Schmige immer zwischen 45° und 90°?
 Ist die Schmiege unabhängig von der Höhe immer gleich groß?
 
 Überprüfung =>
-Berechnung verschieden hoher Pyramiden
-Zeichnung verschieden hoher Pyramiden
-Kontolle des Werkstücks
+Berechnung von Pyramiden unterschiedlicher Höhe
+Zeichnung von Pyramiden unterschiedlicher Höhe
+Überprüfung der Gleichheit der gezeichneten und berechneten Winkel bei jeweils gleicher Höhe 
+Kontolle des tatsächlichen Werkstücks
