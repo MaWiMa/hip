@@ -183,11 +183,11 @@ keyboard = Proc.new do|key, x, y|
 			glutPostRedisplay	
 
 		when ?o,?O                   #zoom out
-			zoom = zoom -0.03*a
+			zoom = zoom -0.09*a
 			glutPostRedisplay	
  puts zoom
 		when ?i,?I                   #zoom in
-			zoom = zoom +0.03*a
+			zoom = zoom +0.09*a
 			glutPostRedisplay	
 puts zoom
 
@@ -239,7 +239,9 @@ glutCreateWindow("Pyramid Project")
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
 glutKeyboardFunc(keyboard)
-glutSpecialFunc(special) # rechts,links,hoch...
+glutSpecialFunc(special)             # rechts,links,hoch...
 #glutMouseFunc(mouse)
+#glutIgnoreKeyRepeat(0)               # 0 multi;1 einmal
+
 init
 glutMainLoop()
