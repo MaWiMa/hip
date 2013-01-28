@@ -1,35 +1,48 @@
 # Norbert Reschke 1988, 1993, 1997,2010-08-20, 2010-12-29, 2011-02-06, 2011-11-01, 2012-10-01, 2012-10-15
-bisheriger Verlauf
-1988 H.A. lässt für Ch. von mir ein pyramidenförmiges Schränkchen bauen. 1/4 der Pyramide ist als Tür entlang der Höhe einer Seite aufklappbar.
-Problemlösung rechnerisch mittels Winkelfunktion und Satz des Pythagoras
-1993 Veranschaulichung im Unterricht bei Prof. Michelsen Aachen, Darstellung des Pyramidenproblems als Unterrichtsstunde
-Papiermodell mehrteilig, Handmodell mit den Extremwerten der Höhe, Berechnung wie oben und per Vektorrechnung in Fortran
-1997 Examensunterrichtsstunde Ermittlung der Schmiege Albrecht-Dürer-Schule, Düsseldorf
-Papiermodell (gefaltet und eingeschnitten), Berechnung per Taschenrechner wie 1988,
-Folgestunde zeichnerische Ermittlung Umklappung
-2010 räumliche Darstellung in OpenGL und Ruby, eingeschnittene Papiermodelle
 
-Problem:
-Ziel => Bau einer Pyramide aus Plattenwerkstoff (gerade, quadratischer Grundriss)
-Problem => Winkel an den vier Pyramidenseiten (Kantenwinkel = 1/2 Winkel zwischen je 2 aneinandergrenzenden Seiten) 
-
+Ziel => Bau einer Pyramide aus Plattenwerkstoff (gerade Pyramide, quadratischer Grundriss)
+Problem => Ermittlung des Kantenwinkels (der Kantenwinkel) an den vier Pyramidenseiten
 Info =>
+Eine Fläche ist regelmäßig, wenn alle Eckpunkte auf dem Umkreis der Fläche liegen (damit sind alle Kanten und Innenwinkel gleich lang).
 Eine Pyramide mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade,
 wenn die Höhe h durch den Mittelpunkt der Grundfläche verläuft, damit sind alle Grate gleich lang.
-Die Platten sind an ihren Kantenflächen verbunden, nur eine Haarfuge ist sichtbar!
+Kantenwinkel = 1/2 Winkel zwischen je 2 aneinandergrenzenden Seiten, die Seiten stoßen am Grat aufeinander.
+Für die Praxis heißt das, die Platten sind an ihren Kantenflächen verbunden, nur eine Haarfuge ist Außen (ggf. auch innen) sichtbar!
 
 Problematisierung =>
 Eingrenzung des Wertebereiches.
-Die Hände dienen als Modell für zwei Pyramidenseiten. Die Extremwerte lassen sich mit einer unendlich hohen und einer gegen Null strebenden Höhe darstellen.
-Welche Schmiege hat eine unendliche hohe Pyramide?
-Welche Schmiege hat eine extrem flache Pyramide?
-Kontrollfragen =>
-Kann die Schmiege einer Seite 40° betragen?
-Liegt die Schmige immer zwischen 45° und 90°?
-Ist die Schmiege unabhängig von der Höhe immer gleich groß?
+Die Hände dienen als Modell für zwei Pyramidenseiten.
+Die Extremwerte lassen sich mit einer unendlich hohen Pyramide und einer Pyramide deren Höhe gegen Null strebt erfassen.
+
+Fragen zur Problematisierung =>
+Welche(n) Kantenwinkel hat eine unendlich hohe Pyramide?
+Welche(n) Kantenwinkel hat eine extrem flache Pyramide?
+
+Verständniskontrollfragen =>
+Ist der Kantenwinkel jeder Pyramide (unabhängig von der Höhe) immer gleich groß?
+Kann der Kantenwinkel 40° betragen?
+Liegt der Kantenwinkel immer zwischen 45° und 90°?
 
 Überprüfung =>
 Berechnung von Pyramiden unterschiedlicher Höhe
+Winkel-, Kanten-, (Oberflächen- und Volumen-)berechnung
+
+Transfer =>
 Zeichnung von Pyramiden unterschiedlicher Höhe
-Überprüfung der Gleichheit der gezeichneten und berechneten Winkel bei jeweils gleicher Höhe 
-Kontrolle des tatsächlichen Werkstücks
+Berechnung von geraden Pyramiden mit dreieckigem Grundriss (Untersuchung des spezial Falls Tetraeder)
+Berechnung von geraden Pyramiden mit regelmäßigem, vieleckigem Grundriss (suche eines Algorithmus für gerade Pyramiden mit regelmäßigen vieleckigen Grundflächen)
+
+1988 Ein Freund (H.A.) möchte von mir einen pyramidenförmigen Schrank bauen lassen. Pyramiden entsprechen dem Zeitgeist (s. Louvre), so werden zu dieser Zeit von Tischlern sehr häufig Pyramidenboxen gebaut. Mich interressiert damals vor allem die saubere konstruktive Lösung der Herstellung. Nachfragen bei Gesellen, Meister und Berufsschullehrern mit denen ich zu dieser Zeit in Kontakt stand halfen bei der Konstruktion nicht weiter.
+Ich baue für H.A. ein pyramidenförmiges Schränkchen (Die Maße habe ich nicht mehr, aus der Erinnerung habe ich mich(wahrscheinlich) an die Relationen der Cheopspyramide gehalten. So müsste die Pyramide eine Kantenlänge von 500mm und eine Höhe von 320mm haben. 1/4 der Pyramide ist als Tür entlang der Höhe einer Seite aufklappbar. Problemlösung rechnerisch mittels Winkelfunktion und Satz des Pythagoras. Mir erschien damals die rechnerische Lösung einfacher und anschaulicher als die zeichnerische Lösung. Nach der erfolgreicher Lösung interressierte mich das Thema zunächst nicht mehr.
+1993 Veranschaulichung im Unterricht bei Prof. Michelsen Aachen, Darstellung des Pyramidenproblems als Unterrichtsstunde
+Papiermodell mehrteilig, Handmodell mit den Extremwerten der Höhe, Berechnung wie oben und per Vektorrechnung in Fortran
+Ich hielt das Problem für besonders geeignet Expertenwissen zu veranschaulichen, dem war nicht so.
+1997 Examensunterrichtsstunde Ermittlung der Kantenwinkel Albrecht-Dürer-Schule, Düsseldorf
+Papiermodell (gefaltet und eingeschnitten), Berechnung per Taschenrechner wie 1988
+Ich hielt das Problem für immer noch für besonders geeignet Expertenwissen zu veranschaulichen, dem war wieder nicht so.
+Folgestunde zeichnerische Ermittlung Umklappung
+Seit dieser Zeit arbeite ich immer wieder daran das Problem zu veranschaulichen.
+Die Idee alles veranschaulichen zu können, wenn das Problem und das Ziel eindeutig beschrieben sind, die Problematisierung und die Erarbeitung (zum Beispiel) über ein aussagekräftiges Modell erfolgen, habe ich inzwischen verworfen
+Ich bin mittlerweile der Auffassung das dieses Problem nur erfolgreich bearbeitet werden kann, wenn Schüler aus eigenem Antrieb mit diesem Problem zu mir kommen (wenn sie z.B. für jemanden eine Pyramide oder ein Werkstück mit geneigten Kanten bauen wollen).
+2010 räumliche Darstellung in OpenGL und Ruby, eingeschnittene Papiermodelle
+
