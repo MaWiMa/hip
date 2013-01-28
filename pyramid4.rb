@@ -60,11 +60,13 @@ glBlendFunc(GL_SRC_ALPHA,GL_ONE)     # transparent
 
 glEnable(GL_LIGHTING)
 glEnable(GL_LIGHT0)
+#glEnable(GL_LIGHT1)
+
 glEnable(GL_COLOR_MATERIAL)
 glPolygonMode(GL_BACK,GL_LINE)
 glPolygonMode(GL_FRONT,GL_FILL)
 glMatrixMode(GL_PROJECTION)
-gluPerspective(35.0,width/height,1.0,1000.0)
+gluPerspective(35.0,width/height,1.0,10000.0)
 glMatrixMode(GL_MODELVIEW)
 glLoadIdentity
 end
