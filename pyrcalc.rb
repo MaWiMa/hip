@@ -1,13 +1,19 @@
 #!/usr/bin/ruby
 # encoding: utf-8
-# pyrcalc.rb
-# Norbert Reschke 1989 - 2011,2012-10-28,2013-01-10
-# ω -> siehe Skizze in images/PyramideSkizzeOpenGL.pdf
-# Berechnung der Schmiege am Grat einer geraden Pyramide mit quadratischer Grundfläche.
-# Eine Pyramide mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade, wenn die
-# Höhe h durch den Mittelpunkt der Grundfläche verläuft. In diesem Fall sind alle Grate gleich lang.
-# Praktische Anwendung liegt im Zuschnitt von Plattenmaterial zum Bau von Pyramiden (oder anderen
-# Körpern mit geneigten Kantencken, alternative Lösung ist die zeichnerische Ermittlung der Schmiege. 
+# pyrcalc.rb, zuletzt geändert 2013-01-28
+# Norbert Reschke 1988 - 2013 [s. README]
+#
+# Berechnung des Kantenwinkels ω am Grat einer geraden Pyramide mit quadratischer Grund-
+# fläche [s. Skizzen in images/Pyramide_rechnerische_Ermittlung_omegas.pdf]. Eine Pyramide
+# mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade, wenn die Höhe h durch 
+# den Mittelpunkt der Grundfläche verläuft. In diesem Fall sind alle Grate gleich lang.
+# Praktische Anwendung liegt in der spanenden Verarbeitung von Holzwerkstoffen (Kreissäge,
+# Fräse) zum Bau von Pyramiden (oder anderen Körpern mit geneigten Kantenecken, alternative
+# Lösung in der Praxis ist die zeichnerische Ermittlung des Kantenwinkels [s. Skizzen in
+# images/Pyramide_zeichnerische_Ermittlung_omegas.pdf]).
+#
+# Berechnung der Werte und Lage der Punkte [s. Skizze in images/PyramideSkizzeOpenGL.pdf]
+
 
 require 'matrix'
 include Math
@@ -194,7 +200,7 @@ puts "hg:    #{@hg}"                 # hg
 puts "hgm:   #{@hgm}"                # hg
 puts "α: #{@alpha}"                  # alpha
 puts "β:  #{@beta}"                  # beta
-puts "γ: #{@gamma}"                  # gamma
+puts "γ: #{@gamma}"                  # gamma, wird lediglich für die Darstellung benötigt
 puts "ω: #{@omega}"                  # omega
 =begin
 puts "Vektor am Grad #{@vec_G}"

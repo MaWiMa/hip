@@ -1,8 +1,7 @@
 #!/usr/bin/ruby
 # encoding: utf-8
 # Norbert Reschke 2010-08-20, 2010-12-29, 2011-02-06, 2011-11-01, 2012-10-01, 2012-10-15, 2012-11-02, 2013-01-10
-# gerade Pyramide mit quadratischer Grundfläche
-# Eine Pyramide mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade, wenn die Höhe h durch den Mittelpunkt der Grundfläche verläuft (damit sind alle Grate gleich lang).
+# s. pyrcalc.rb
 
 require_relative 'pyrcalc'           # ruby 1.9.3
 #require 'pyrcalc'                   # ruby < 1.9.2
@@ -235,13 +234,14 @@ glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE)
 #glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
 glutInitWindowSize(600,600)
 glutInitWindowPosition(0, 0)
-glutCreateWindow("Pyramid Project")
+#glutCreateWindow("gerade Pyramide mit quadratischer Grundfläche") # Probleme mit Umlauten
+glutCreateWindow("canonical pyramid with quadratic base area")     # broken denglisch, maybe
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
 glutKeyboardFunc(keyboard)
 glutSpecialFunc(special)             # rechts,links,hoch...
 #glutMouseFunc(mouse)
-#glutIgnoreKeyRepeat(0)               # 0 multi;1 einmal
+#glutIgnoreKeyRepeat(0)              # 0 multi;1 einmal
 
 init
 glutMainLoop()
