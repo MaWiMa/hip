@@ -4,12 +4,12 @@
 # s. pyrcalc.rb
 
 require_relative 'pyrcalc'           # ruby 1.9.3
-#require 'pyrcalc'                   # ruby < 1.9.2
 
 require 'opengl'
-require 'matrix'
+require 'glu'
+require 'glut'
 include Math
-
+include GL,GLU,GLUT
 
 
 unless ARGV.length < 3

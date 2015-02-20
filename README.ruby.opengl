@@ -4,8 +4,11 @@ yum list rubygem-ruby-opengl  # if Version < 0.8x then
 yum erase rubygem-ruby-opengl # because you can't use it with ruby > 1.92 
 gem install opengl --pre      # follow instructions in https://github.com/larskanis/opengl/blob/master/README.rdoc
 
-###############################
+
 sources:
 https://github.com/larskanis/opengl/
 https://github.com/larskanis/opengl/blob/master/README.rdoc
 
+archlinux
+pacman -S freeglut
+gem opengl glu glut

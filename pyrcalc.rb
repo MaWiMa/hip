@@ -114,7 +114,7 @@ end
 def draw_omega
 glBegin(GL_TRIANGLES)
 # OIFL Innenfläche des Winkels Omega auf der linken Seite
-#r,g,b = 0.2,0,1                     # blau
+#r,g,b = 0.4,0.4,1                     # blau
 r,g,b = 205.0/256,55.0/256,1.0/256   # braun
 glColor(r,g,b,1.0)
 glNormal(n_vec(@vec_G,@vec_3,@vec_6).to_a)
@@ -190,18 +190,34 @@ end
 
 
 def output
-#puts "Gerade Pyramide mit quadratischer Grundfläche"
-puts "a:     #{@a}"                  # a
-puts "h:     #{@h}"                  # h
-puts "d:     #{@d}"	                 # d
-puts "ha     #{@ha}"                 # ha
-puts "g:     #{@g}"                  # g
-puts "hg:    #{@hg}"                 # hg
-puts "hgm:   #{@hgm}"                # hg
-puts "α: #{@alpha}"                  # alpha
-puts "β:  #{@beta}"                  # beta
-puts "γ: #{@gamma}"                  # gamma, wird lediglich für die Darstellung benötigt
-puts "ω: #{@omega}"                  # omega
+system "clear"
+puts "  Kantenwinkel ω am Grat der Pyramide"
+puts ""
+#puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+#printf "| %-25s |%+3s| %-20s |\n","Bezeichnung","Kurzf","Zahlenwert"
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Kantenlänge der Pyramide", "a",@a
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Pyramidenhöhe","h",@h
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Diagonale der Grundseite","d",@d
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Höhe einer Pyramidenseite","ha",@ha
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Grat der Pyramide","g",@g
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Höhe des Grates zur Seite","hg",@hg
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+#printf "| %-25s | %+3s | %20.12f |\n","Höhe Grat-Mitte","hgm",@hgm
+#puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Winkel Seite/Grundfläche","α",@alpha
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Winkel Grat/Kantenlänge","β",@beta
+#printf "%-25s =>%+3s:%20.12f\n", "γ",@gamma
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+printf "| %-25s | %+3s | %20.12f |\n","Kantenwinkel","ω",@omega
+puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
+
 =begin
 puts "Vektor am Grad #{@vec_G}"
 puts "Vektor 1 #{@vec_1}"
