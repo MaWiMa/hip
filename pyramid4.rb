@@ -48,7 +48,7 @@ zoom = -3.0*a                        # keyboard n,N; i,I;o,O
 x_rot = -90.0		                 # x Variable für glRotate(); Rotationsstartwinkel um die X-Achse
 z_rot = -130.0		                 # z Variable für glRotate(); Rotationsstartwinkel um die Z-Achse
 ###
-
+maxh = 10000000
 pyr = Pyramid.new(a,h)
 pyr.output
 
@@ -103,7 +103,7 @@ keyboard = Proc.new do|key, x, y|
 =begin
   when ?a,?A
    puts "Neue Kantenlänge a eingeben:"
-   input = gets.chomp  
+   input = $stdin.gets.chomp  
    puts "input #{input}"
    if input.to_f === 0.0 then
  	a = a
@@ -124,7 +124,7 @@ keyboard = Proc.new do|key, x, y|
 
   when ?h,?H
    puts "Neue Höhe h eingeben:"
-   input = gets.chomp  
+   input = $stdin.gets.chomp  
    puts "input #{input}"
    if input.to_f === 0.0 then
  	h = h
@@ -144,13 +144,13 @@ keyboard = Proc.new do|key, x, y|
    glutPostRedisplay	  
 =end
   when ?s,?S,?-                         #reduziere die Höhe
-   if h > 0.01 then			
-	h = h-0.1*h 
+   if h > 0.01 then
+	h = h-0.1*h
     elsif pyr.omega < 89.99999
     h = h-0.5*h
     else
     h = h
-   puts "ω: --> 90° "
+   puts "ω: => 90° "
    end
   if pyr.omega < 89.99999 
   pyr = Pyramid.new(a,h)
@@ -161,13 +161,12 @@ keyboard = Proc.new do|key, x, y|
 		when ?b,?B,?+                   #vergrößere die Höhe
 		if h < 0.01  then
 		h = h+0.5*h
-		elsif h < 20000.0 then			
+		elsif h < maxh then			
 		h = h+0.1*h
 		else
-		h = h
-        puts "ω: --> 45° "	
+        puts "ω: => 45° "	
 		end 
-  if h < 20000.0		
+  if h < maxh		
   pyr = Pyramid.new(a,h)
   pyr.output
   glutPostRedisplay
@@ -234,7 +233,7 @@ end
 glutInit
 glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE)
 #glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
-glutInitWindowSize(600,600)
+glutInitWindowSize(700,700)
 glutInitWindowPosition(0, 0)
 #glutCreateWindow("gerade Pyramide mit quadratischer Grundfläche") # Probleme mit Umlauten
 glutCreateWindow("canonical pyramid with quadratic base area")     # broken denglisch, maybe
