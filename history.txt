@@ -1,0 +1,80 @@
+# Norbert Reschke 1988, 1993, 1997,2010-08-20, 2010-12-29, 2011-02-06, 2011-11-01, 2012-10-01, 2012-10-15
+#
+Ziel => Bau einer Pyramide aus Plattenwerkstoff (gerade Pyramide, quadratischer Grundriss)
+#
+Problem => Ermittlung des Kantenwinkels (der Kantenwinkel) an den vier Pyramidenseiten
+#
+Info => Eine Fläche ist regelmäßig, wenn alle Eckpunkte auf dem Umkreis der Fläche liegen
+(damit sind alle Kanten gleich lang und alle Innenwinkel gleich groß, alle Ecken konvex).
+Eine Pyramide mit einer Grundfläche aus einem regelmäßigen Vieleck heißt gerade, wenn die
+Höhe h durch den Mittelpunkt der Grundfläche verläuft (damit sind alle Grate (hip) gleich lang).
+Kürzer -> kanonische Pyramide (wird die Eckenzahl nicht genannt, geht man von einer quadratischen
+Pyramide aus, kanonisch ist die Pyramide, wenn die Spitze der Pyramide im Mittelpunkt einer Kugel
+und die Eckpunkte der Grundfläche auf der Oberfläche derselben Kugel liegen, dabei haben
+alle Eckpunkte den gleichen Abstand zum Mittelpunkt der Kugel)
+Kantenwinkel = 1/2 Winkel zwischen je 2 aneinandergrenzenden Pyramidenseiten, die Seiten stoßen
+am Grat aufeinander. Für die Praxis heißt das, die Platten sind an ihren Kantenflächen verbunden,
+nur eine Haarfuge ist außen (ggf. auch innen) sichtbar!
+#
+Problematisierung => Eingrenzung des Wertebereiches.
+Die Hände dienen als Modell zweier aneinandergrenzender Pyramidenseiten.
+Die Extremwerte lassen sich mit einer unendlich hohen Pyramide und einer Pyramide mit gegen Null strebender Höhe erfassen.
+#
+Fragen zur Problematisierung =>
+Welche(n) Kantenwinkel hat eine unendlich hohe Pyramide?
+Welche(n) Kantenwinkel hat eine extrem flache Pyramide?
+#
+Verständniskontrollfragen =>
+Ist der Kantenwinkel jeder Pyramide (unabhängig von der Höhe) immer gleich groß?
+Kann der Kantenwinkel 40° betragen?
+Liegt der Kantenwinkel immer zwischen 45° und 90°?
+#
+Überprüfung =>
+Berechnung von Pyramiden unterschiedlicher Höhe
+Winkel-, Kanten-, (Oberflächen- und Volumen-)berechnung
+#
+Transfer =>
+Zeichnung von Pyramiden unterschiedlicher Höhe
+Berechnung von geraden Pyramiden mit dreieckigem Grundriss (Untersuchung des spezial Falls Tetraeder),
+Berechnung von geraden Pyramiden mit regelmäßigen, vieleckigen Grundflächen (suche eines Algorithmus
+für gerade Pyramiden mit regelmäßigen vieleckigen Grundflächen),
+Berechnung von schiefen Pyramiden
+#
+###################################################################
+## zeitlicher Verlauf
+1988, Ein Freund (H.A.) gib bei mir einen pyramidenförmigen Schrank in Auftrag.
+Pyramiden entsprechen dem Zeitgeist (s. Louvre), so werden zu dieser Zeit von Tischlern sehr häufig
+Pyramidenboxen gebaut. Mich interressierte damals vor allem die saubere konstruktive Lösung der Herstellung.
+Nachfragen bei Gesellen, Meister und Berufsschullehrern mit denen ich zu dieser Zeit in Kontakt stand
+halfen mir bei der Konstruktion nicht weiter.
+Ich baue für H.A. ein pyramidenförmiges Schränkchen (Die Maße erinnere ich nicht, ich gehe davon aus mich
+an die Relationen der Cheopspyramide gehalten. So müsste die Pyramide eine Kantenlänge
+von 500mm und eine Höhe von 320mm (gehabt) haben. 1/4 der Pyramide war, als Tür entlang der Höhe einer Seite,
+aufklappbar. Problemlösung rechnerisch mittels Winkelfunktion und Satz des Pythagoras. Mir erschien damals
+die rechnerische Lösung einfacher und anschaulicher als die zeichnerische Lösung. Nach der erfolgreichen Lösung
+interressierte mich das Thema zunächst nicht mehr.
+##
+1993, Veranschaulichung im Unterricht bei Prof. Michelsen RWTH-Aachen, Darstellung des Pyramidenproblems als
+Unterrichtsstunde, Papiermodell mehrteilig (sinnvolle Lage der Grathöhe war mir zu dieser Zeit nicht bewusst),
+Handmodell mit den Extremwerten der Höhe, Berechnung wie oben und per Vektorrechnung in Fortran. Vektorrechnung als
+Erweiterung, jedoch wenig anschaulich.
+Ich hielt das Problem für besonders geeignet Expertenwissen zu veranschaulichen, dem war nicht so.
+##
+1997, Examensunterrichtsstunde Ermittlung der Kantenwinkel Albrecht-Dürer-Schule, Düsseldorf
+Papiermodell (gefaltet und eingeschnitten), Berechnung per Taschenrechner (wie 1988, jedoch ohne Vektorrechnung)
+Ich hielt das Problem für immer noch für besonders geeignet Expertenwissen zu veranschaulichen, dem war wieder
+nicht so.
+Folgestunde zeichnerische Ermittlung. Umklappung selbst erarbeitet da mir die gesichtete
+Holzbearbeitungsliteratur nicht ausreichend nachvollziehbar anschaulich war.
+Seit dieser Zeit arbeite ich immer wieder daran das Problem zu veranschaulichen.
+##
+2010 virtuelle räumliche Darstellung in OpenGL und Ruby, erneut eingeschnittene Papiermodelle
+##
+2013, Die Idee alles veranschaulichen zu können, wenn das Problem und das Ziel eindeutig beschrieben wird, wenn
+die Problematisierung und die Erarbeitung (zum Beispiel) über ein aussagekräftiges Modell erfolgen, habe ich verworfen.
+Ein komplexes Problem kann nur erfolgreich bearbeitet werden kann,
+wenn es tatsächlich ein echtes Schülerproblem ist, (wenn jemand für sich oder Dritte
+eine Pyramide oder ein Werkstück mit geneigten Kanten bauen will).
+In diesem Fall kommen die Schüler mit einem Problem zu mir, das ich bereits gelöst habe. 
+Die Lehrerlösung sollte lediglich schülereigene Lösungen begleiten und unterstützen (Hilfestelleung in Sackgassen,
+Abgleich nach erfolgreicher Lösung).
