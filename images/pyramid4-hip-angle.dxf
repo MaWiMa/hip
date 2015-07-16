@@ -2725,7 +2725,7 @@ ByLayer
   1
 B
   7
-textstyle4
+textstyle1
  50
 0.0
  73
@@ -2767,7 +2767,7 @@ ByLayer
   1
 C
   7
-textstyle5
+textstyle2
  50
 0.0
  73
@@ -2809,7 +2809,7 @@ ByLayer
   1
 r
   7
-textstyle6
+textstyle3
  50
 0.0
  73
@@ -2851,7 +2851,7 @@ ByLayer
   1
 gamma
   7
-textstyle7
+textstyle4
  50
 0.0
  73
@@ -2893,7 +2893,7 @@ ByLayer
   1
 a
   7
-textstyle8
+textstyle5
  50
 0.0
  73
@@ -2935,7 +2935,7 @@ ByLayer
   1
 M
   7
-textstyle9
+textstyle6
  50
 0.0
  73
@@ -2977,7 +2977,7 @@ ByLayer
   1
 a =BC
   7
-textstyle10
+textstyle7
  50
 0.0
  73
@@ -3171,7 +3171,7 @@ ByLayer
   1
 beta
   7
-textstyle12
+textstyle8
  50
 0.0
  73
@@ -3273,7 +3273,7 @@ ByLayer
   1
 h
   7
-textstyle3
+textstyle9
  50
 0.0
  73
@@ -3315,7 +3315,7 @@ ByLayer
   1
 h_gM
   7
-textstyle2
+textstyle10
  50
 0.0
  73
@@ -3357,7 +3357,7 @@ ByLayer
   1
 h_g
   7
-textstyle1
+textstyle11
  50
 0.0
  73
@@ -3399,7 +3399,7 @@ ByLayer
   1
 S
   7
-textstyle0
+textstyle12
  50
 0.0
  73
@@ -3531,7 +3531,7 @@ ByLayer
   1
 omega
   7
-textstyle11
+textstyle0
  50
 0.0
  73
