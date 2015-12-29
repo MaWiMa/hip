@@ -10,7 +10,7 @@ require 'matrix'
 include Math
 
 class Pyramid
-attr_reader :d, :ha, :g, :hg, :hgm, :alpha, :beta, :gamma05, :r, :omega, :z, :y, :x, :vec_G, :vec_1, :vec_2, :vec_3, :vec_4, :vec_5, :vec_6
+attr_reader :d, :ha, :g, :hg, :hgm, :alpha, :beta, :gamma, :r, :omega, :z, :y, :x, :vec_G, :vec_1, :vec_2, :vec_3, :vec_4, :vec_5, :vec_6
 
 def initialize(n,a,h)
 
@@ -19,24 +19,31 @@ def initialize(n,a,h)
 @h = h # height
 
 
-@gamma05 = (n-2) * PI * (2*n)**-1
-@r       = (a/2) * cos(@gamma05)**-1
+@gamma = (n-2) * PI * (2*n)**-1
+@r       = (a/2) * cos(@gamma)**-1
 @beta    = atan(h * @r**-1)
-#@h_aM    = sin(@gamma05) * @r
-@m       = tan(@gamma05) * @r
+#@h_aM    = sin(@gamma) * @r
+@m       = tan(@gamma) * @r
 @h_gM    = @r * sin(@beta)
 @omega = atan(@m * @h_gM**-1)
+@z     = sqrt(h_gM**2 + m**2)
 
 
-phi = PI * 2**-1 - @gamma05 * 2 # pi - ɣ
+phi = PI * 2**-1 - @gamma * 2 # pi - ɣ
 
 r_o  = sin(@beta) * @h_gM
 h_gr = sqrt(@h_gM**2 - ro**2)
-t    = @r * cos(phi)
-u    = @r * sin(phi)
 
-for i in (1...n)
-codeblock
+
+for i in (2..n)
+
+t    = @r * cos(phi * (i-1))
+u    = @r * sin(phi * (i-1))
+
+vec_i = "vec_" + i.to_s
+@vec_i = Vector[u,t,0.0]         
+
+return @vec_i
 end
 
 
@@ -75,7 +82,7 @@ end
 
 @vec_1 = Vector[0.0,-@r,0.0]       
 @vec_2 = Vector[u,-t,0.0]         
-@vec_n = Vector[-	u,-t,0.0]         
+@vec_n = Vector[-u,-t,0.0]         
 
 
 @vec_3 = Vector[a,0.0,0.0]           # Fußpunkt unten links
