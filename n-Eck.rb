@@ -8,7 +8,7 @@ include Math
 
 n = ARGV[0].to_i
 a = ARGV[1].to_f
-	
+
 if n == 0.0 or a == 0.0
 puts "n und a müssen ein Wert größer 0 haben!"
 exit
@@ -27,6 +27,7 @@ gamma05 = (n-2) * PI * (2*n)**-1
 
 # Strecken
 r_u = (a/2) * cos(gamma05)**-1
+# a = 2 * r_u * cos(gamma05)
 # h_aM = sin(gamma05) * r_u
 
 # Umrechnung Bogenmaß in Grad	
