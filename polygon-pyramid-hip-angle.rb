@@ -44,7 +44,7 @@ omega = atan(m * h_gM**-1)
  gamma05  = gamma05 * 180 *PI**-1
  gamma    = gamma05*2
  beta     = beta * 180 *PI**-1
- omega    = omega * 	180 *PI**-1
+ omega    = omega * 180 *PI**-1
 
 
 puts "-----"
