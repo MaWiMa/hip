@@ -69,13 +69,15 @@ glEnable(GL_BLEND)
 
 glBlendFunc(GL_SRC_ALPHA,GL_ONE) # transparent
 #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
-#glEnable (GL_DEPTH_TEST)
-#glClearDepth(1.0)
-glEnable(GL_LIGHTING)		# Beleuchtung
+glEnable (GL_DEPTH_TEST)
+glClearDepth(1.0)
+glDisable(GL_LIGHTING)		# Beleuchtung
 glColorMaterial( GL_FRONT, GL_AMBIENT_AND_DIFFUSE )
 glEnable(GL_LIGHT0)
 glEnable(GL_COLOR_MATERIAL)
-glPolygonMode(GL_FRONT_AND_BACK, GL_FILL) # Front- und Rückseite sichtbar 
+#glPolygonMode(GL_FRONT_AND_BACK, GL_FILL) # Front- und Rückseite sichtbar 
+glPolygonMode(GL_FRONT, GL_FILL) # Front- und Rückseite sichtbar 
+
 #
 # Viewing
 glMatrixMode(GL_PROJECTION)
@@ -107,6 +109,7 @@ glutPostRedisplay
 ### draw this
 pyr.draw_lines
 pyr.draw_base
+pyr.draw_triangles
 pyr.draw_Ebene
 glEnable(GL_BLEND)
 glutSwapBuffers

@@ -127,6 +127,22 @@ glVertex(@vec_GE1.to_a)# Winkelebene
 glEnd
 end
 
+ def draw_triangles
+  glBegin(GL_TRIANGLES)
+  r,g,b = 244.0/256,164.0/256,96.0/256  # braun
+  glColor(r,g,b,1.0)
+   for i in (1..@base.length)
+    glVertex(@base[i-1])
+    glVertex(@base[i-2])
+
+    glVertex(@vec_S)
+
+   end
+glEnd
+end
+
+
+
 def output
 system "clear"
 def opline (x)
