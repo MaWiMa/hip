@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 # encoding: utf-8
-# Norbert Reschke 2016-01-04 s. pmath.rb
+# Norbert Reschke s. pmath.rb
 
 require_relative 'pmath'           # ruby 1.9.3
 
@@ -63,25 +63,24 @@ pyr.output
 
 def init(width=16,height=10)
 #glClearColor(red,green,blue,alpha)	# Hintergrundfarbe alpha 0.0 -> transparent;alpha 1.0 -> undurchsichtig
-#glClearColor(1.0,1.0,1.0,0.0)		# Hintergrundfarbe weiss
 glClearColor(0.0,0.0,0.0,1.0)		# Hintergrundfarbe schwarz
 
 glEnable(GL_BLEND)
 
 glBlendFunc(GL_SRC_ALPHA,GL_ONE) # transparent
 #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
-glEnable (GL_DEPTH_TEST)
-glClearDepth(1.0)
-glEnable(GL_LIGHTING)		# keine Beleuchtung
+#glEnable (GL_DEPTH_TEST)
+#glClearDepth(1.0)
+glEnable(GL_LIGHTING)		# Beleuchtung
 glColorMaterial( GL_FRONT, GL_AMBIENT_AND_DIFFUSE )
 glEnable(GL_LIGHT0)
-glEnable(GL_LIGHT1)
 glEnable(GL_COLOR_MATERIAL)
 glPolygonMode(GL_FRONT_AND_BACK, GL_FILL) # Front- und Rückseite sichtbar 
 #
 # Viewing
 glMatrixMode(GL_PROJECTION)
-gluPerspective(35.0,width/height,0.01,10000.0)
+#gluPerspective(35.0,width/height,0.1,10000.0)
+gluPerspective(35.0,width/height,1,10.0)
 glMatrixMode(GL_MODELVIEW)
 glEnable(GL_LINE_SMOOTH)
 glEnable(GL_POINT_SMOOTH)
