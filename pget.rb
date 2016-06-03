@@ -67,36 +67,18 @@ pyr.output
 #puts
 #puts pyr.omega*180/PI
 
-=begin
 def init(width=16,height=10)
-glClearColor(1.0,1.0,1.0,0.0)		# Hintergrundfarbe weiss
-glEnable(GL_BLEND)
-glDepthFunc(GL_LEQUAL)
-glBlendFunc(GL_SRC_ALPHA,GL_ONE)     # transparent
-glEnable(GL_LIGHTING)
-glEnable(GL_LIGHT0)
-glEnable(GL_COLOR_MATERIAL)
-glPolygonMode(GL_BACK,GL_LINE)
-glPolygonMode(GL_FRONT,GL_FILL)
-glMatrixMode(GL_PROJECTION)
-gluPerspective(35.0,width/height,0.1,10000.0)
-glMatrixMode(GL_MODELVIEW)
-glLoadIdentity
-end
-=end
-def init(width=16,height=10)
-
 #glClearColor(red,green,blue,alpha)	# Hintergrundfarbe alpha 0.0 -> transparent;alpha 1.0 -> undurchsichtig
 #glClearColor(1.0,1.0,1.0,0.0)		# Hintergrundfarbe weiss
-glClearColor(0.0,0.0,0.0,0.0)		# Hintergrundfarbe schwarz
+glClearColor(0.0,0.0,0.0,1.0)		# Hintergrundfarbe schwarz
 
 glEnable(GL_BLEND)
 
-#glBlendFunc(GL_SRC_ALPHA,GL_ONE) # transparent
-glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
+glBlendFunc(GL_SRC_ALPHA,GL_ONE) # transparent
+#glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
 glEnable (GL_DEPTH_TEST)
 glClearDepth(1.0)
-glDisable(GL_LIGHTING)		# keine Beleuchtung
+glEnable(GL_LIGHTING)		# keine Beleuchtung
 glColorMaterial( GL_FRONT, GL_AMBIENT_AND_DIFFUSE )
 glEnable(GL_LIGHT0)
 #glEnable(GL_LIGHT1)
@@ -110,7 +92,7 @@ glMatrixMode(GL_MODELVIEW)
 glEnable(GL_LINE_SMOOTH)
 glEnable(GL_POINT_SMOOTH)
 glEnable(GL_POLYGON_SMOOTH)
-#glShadeModel(GL_SMOOTH)
+glShadeModel(GL_SMOOTH)
 end
 
 reshape = lambda do |width,height|
@@ -130,22 +112,6 @@ glutPostRedisplay
 
 
 ### draw this
-
-#pyr.draw_base
-
-### Grundfläche/Basearea
-#def draw_base
-#r,g,b = 0.2,0.1,0.9   # blue
-#glColor(r,g,b,1.0)
-#glBegin(GL_POLYGON)
-#glNormal(pyr.n_vec(pyr.base[0],pyr.base[1],pyr.base[-1]).to_a)
-#for i in (1..pyr.base.length)
-#glVertex(pyr.base[i-1])
-#end
-#glEnd
-#end
-
-
 pyr.draw_lines
 pyr.draw_base
 pyr.draw_Ebene
