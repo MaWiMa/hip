@@ -60,12 +60,6 @@ maxh = 10000
 pyr = Pyramid.new(n,a,h)
 zoom = -5.5*pyr.r                    # keyboard n,N; i,I;o,O 
 pyr.output
-#for i in (1..pyr.base.length)
-#print "Vec_#{"%02d"% i} #{pyr.base[i-1]}"
-#puts ""
-#end
-#puts
-#puts pyr.omega*180/PI
 
 def init(width=16,height=10)
 #glClearColor(red,green,blue,alpha)	# Hintergrundfarbe alpha 0.0 -> transparent;alpha 1.0 -> undurchsichtig
@@ -81,7 +75,7 @@ glClearDepth(1.0)
 glEnable(GL_LIGHTING)		# keine Beleuchtung
 glColorMaterial( GL_FRONT, GL_AMBIENT_AND_DIFFUSE )
 glEnable(GL_LIGHT0)
-#glEnable(GL_LIGHT1)
+glEnable(GL_LIGHT1)
 glEnable(GL_COLOR_MATERIAL)
 glPolygonMode(GL_FRONT_AND_BACK, GL_FILL) # Front- und Rückseite sichtbar 
 #
@@ -219,8 +213,6 @@ glutDisplayFunc(display)
 glutReshapeFunc(reshape)
 glutKeyboardFunc(keyboard)
 glutSpecialFunc(special)             # rechts,links,hoch...
-#glutMouseFunc(mouse)
-#glutIgnoreKeyRepeat(0)              # 0 multi;1 einmal
 
 init
 glutMainLoop()
