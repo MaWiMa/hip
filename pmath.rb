@@ -20,22 +20,19 @@ def initialize(n,a,h)
 
 
 @gamma = (n-2) * PI * (2*n)**-1
-@r       = (a/2) * cos(@gamma)**-1
-@beta    = atan(h * @r**-1)
+@r     = (a/2) * cos(@gamma)**-1
+@beta  = atan(h * @r**-1)
 @alpha = PI*2**-1 -@beta
-#@h_aM    = sin(@gamma) * @r
-@m       = tan(@gamma) * @r
-@h_gM    = @r * sin(@beta)
+@m     = tan(@gamma) * @r
+@h_gM  = @r * sin(@beta)
 @omega = atan(@m * @h_gM**-1)
 @z     = sqrt(@h_gM**2 + @m**2)
 
 
-phi = 2 * PI/n
-#phi_g = phi*180*PI**-1
-#puts "phi, "+phi_g.to_s
+phi  = 2 * PI/n
 r_o  = sin(@beta) * @h_gM
 h_gr = sqrt(@h_gM**2 - r_o**2)
-@g = sqrt(@r**2 + @h**2)         # Grat der Pyramide
+@g   = sqrt(@r**2 + @h**2)         # Grat der Pyramide
 
 #Schnittebene
 z_E = sin(@alpha) * @r * 1.1
@@ -46,7 +43,7 @@ y_E = cos(@alpha) * @r * 1.1
 @vec_S = Vector[0,0,h]           # top
 @vec_ME1= Vector[@m,0,0]         # Winkelebene Fußpunkt 1
 @vec_ME2= Vector[-@m,0,0]        # Winkelebene Fußpunkt 2
-@vec_GE = Vector[0,-y_E,z_E]  
+@vec_GE = Vector[0,-y_E,z_E]     # Winkelebene Mittellinie durch 0 und G
 @vec_GE1 = Vector[@m,-y_E,z_E]   # Winkelebene Oberkantenpunkt 1
 @vec_GE2 = Vector[-@m,-y_E,z_E]  # Winkelebene Oberkantenpunkt 2
 
