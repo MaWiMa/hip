@@ -63,26 +63,25 @@ pyr.output
 
 def init(width=16,height=10)
 #glClearColor(red,green,blue,alpha)	# Hintergrundfarbe alpha 0.0 -> transparent;alpha 1.0 -> undurchsichtig
-glClearColor(0.0,0.0,0.0,1.0)		# Hintergrundfarbe schwarz
+glClearColor(0.0,0.0,0.0,0.0)		# Hintergrundfarbe schwarz
 
 glEnable(GL_BLEND)
-
 glBlendFunc(GL_SRC_ALPHA,GL_ONE) # transparent
 #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
-glEnable (GL_DEPTH_TEST)
+glEnable(GL_DEPTH_TEST)
 glClearDepth(1.0)
-glDisable(GL_LIGHTING)		# Beleuchtung
-glColorMaterial( GL_FRONT, GL_AMBIENT_AND_DIFFUSE )
+glEnable(GL_LIGHTING)		# Lighting, Beleuchtung
+#glColorMaterial( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE )
 glEnable(GL_LIGHT0)
+glEnable(GL_LIGHT1)
+
 glEnable(GL_COLOR_MATERIAL)
-#glPolygonMode(GL_FRONT_AND_BACK, GL_FILL) # Front- und Rückseite sichtbar 
-glPolygonMode(GL_FRONT, GL_FILL) # Front- und Rückseite sichtbar 
+glPolygonMode(GL_FRONT_AND_BACK, GL_FILL) # Front- und Rückseite sichtbar 
 
 #
 # Viewing
 glMatrixMode(GL_PROJECTION)
-#gluPerspective(35.0,width/height,0.1,10000.0)
-gluPerspective(35.0,width/height,1,10.0)
+gluPerspective(35.0,width/height,0.1,10000.0)
 glMatrixMode(GL_MODELVIEW)
 glEnable(GL_LINE_SMOOTH)
 glEnable(GL_POINT_SMOOTH)
@@ -106,11 +105,33 @@ glutPostRedisplay
 
 
 
-### draw this
-pyr.draw_lines
-pyr.draw_base
+### draw everything 
+#pyr.draw_base_lines
+#pyr.draw_height
+#pyr.draw_surface_lines
+#pyr.draw_section_plane_lines
+#pyr.draw_base
+#pyr.draw_surface
 pyr.draw_triangles
+pyr.draw_plane
+=begin
+if $spiderweb
+pyr.draw_lines
+else
+pyr.draw_lines
+end
+
+
+if $plane
 pyr.draw_Ebene
+else
+pyr.draw_lines
+end
+
+if $base
+pyr.draw_base
+end
+=end
 glEnable(GL_BLEND)
 glutSwapBuffers
 end
@@ -148,7 +169,13 @@ keyboard = Proc.new do|key, x, y|
   glutPostRedisplay
   end	
 
+		when ?e,?E
+			$base = !$base
+			glutPostRedisplay				
 
+		when ?p,?P
+			$plane = !$plane
+			glutPostRedisplay				
 
 		when ?n,?N                   #zoom Ausgangsperspektive
 			zoom = -3.5*pyr.r
@@ -208,8 +235,8 @@ end
 
 glutInit
 glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE)
-glutInitWindowSize(1100,1100)
-glutInitWindowPosition(0, 0)
+glutInitWindowSize(800,800)
+glutInitWindowPosition(0,0)
 glutCreateWindow("canonical pyramid with polygon base area") 
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
