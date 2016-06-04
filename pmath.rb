@@ -37,7 +37,7 @@ r_o  = sin(@beta) * @h_gM
 h_gr = sqrt(@h_gM**2 - r_o**2)
 @g   = sqrt(@r**2 + @h**2)       # hip, Grat
 
-#Schnittebene
+#section plane, Schnittebene
 z_E = sin(@alpha) * @r * 1.1
 y_E = cos(@alpha) * @r * 1.1
 
@@ -59,34 +59,55 @@ base_polygon = [] # create empty array
  end
 end
 
-def draw_lines
+def draw_height
 glLineWidth(2)
 glBegin(GL_LINES)	
-glColor(0.6,0.6,0.6)	
-
-# Höhe der Pyramide
+r,g,b = 0.6,0.6,0.6   #grey
+glColor(r,g,b,1.0)	
+# height of pyramid, Höhe der Pyramide
 glVertex(@vec_M.to_a)
 glVertex(@vec_S.to_a)	
-
-# Polygonlinien 
-for i in (1..@base.length) # base-area outlines
-glVertex(@base[i-2])
-glVertex(@base[i-1])
+glEnd
 end
 
-# Linien Polygoneckpunkte zum Mittelpunkt
-for i in (1..@base.length) # lines in base-area
-glVertex(@base[i-1])
-glVertex(@vec_M.to_a)	
+def draw_base_lines
+glLineWidth(2)
+glBegin(GL_LINES)	
+r,g,b = 0.6,0.6,0.6   #grey
+glColor(r,g,b,1.0)	
+ # polygon lines, Polygonlinien 
+ for i in (1..@base.length) # base-area outlines
+  glVertex(@base[i-2])
+  glVertex(@base[i-1])
+ end
+
+ # lines from edges to center, Linien Polygoneckpunkte zum Mittelpunkt
+ for i in (1..@base.length) # lines in base-area
+  glVertex(@base[i-1])
+  glVertex(@vec_M.to_a)	
+ end
+glEnd
 end
 
-# Mantelflächenlinien
-for i in (1..@base.length) # lines on outside-surface
-glVertex(@base[i-1])
-glVertex(@vec_S.to_a)	
+def draw_surface_lines
+glLineWidth(2)
+glBegin(GL_LINES)	
+r,g,b = 0.6,0.6,0.6   #grey
+glColor(r,g,b,1.0)	
+ # lateral surface lines, Mantelflächenlinien
+ for i in (1..@base.length) # lines on outside-surface
+  glVertex(@base[i-1])
+  glVertex(@vec_S.to_a)	
+ end
+glEnd
 end
 
-glColor(0.6,0.6,1.0)
+def draw_section_plane_lines
+glLineWidth(2)
+glBegin(GL_LINES)	
+r,g,b = 0.6,0.6,0.6   #grey
+glColor(r,g,b,1.0)	
+
 # Winkelebene, Schenkel Omega von Fußpunkt 1 zum Gratpunkt G
 glVertex(@vec_ME1.to_a)
 glVertex(@vec_G.to_a)  	
@@ -128,8 +149,8 @@ end
 glEnd
 end
 
-def draw_Ebene
-r,g,b = 0.8,0.8,0.9   #
+def draw_plane
+r,g,b = 0.7,0.7,0.9   #
 glColor(r,g,b,1.0)
 glBegin(GL_POLYGON)
 glVertex(@vec_ME1.to_a)# Winkelebene Schnittkante an Pyramide, Fußpunkt 2
@@ -139,10 +160,9 @@ glVertex(@vec_GE1.to_a)# Winkelebene
 glEnd
 end
 
-=begin
- def draw_triangles
+ def draw_surface
   glBegin(GL_TRIANGLES)
-  r,g,b = 244.0/256,164.0/256,96.0/256  # braun
+  r,g,b = 0.5,1.0,0.5  # green
   glColor(r,g,b,1.0)
    for i in (1..@base.length)
     glVertex(@base[i-1])
@@ -151,7 +171,20 @@ end
    end
 glEnd
 end
-=end
+
+ def draw_triangles
+  glBegin(GL_TRIANGLES)
+  r,g,b = 0.5,1.0,0.5  # green
+  glColor(r,g,b,1.0)
+    glVertex(@base[0])
+    glVertex(@base[1])
+    glVertex(@vec_S)
+    glVertex(@base[0])
+    glVertex(@base[-1])
+    glVertex(@vec_S)
+
+glEnd
+end
 
 def output
 system "clear"
