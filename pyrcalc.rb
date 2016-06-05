@@ -14,7 +14,7 @@
 #
 # Berechnung der Werte und Lage der Punkte [s. Skizze in images/PyramideSkizzeOpenGL.pdf]
 
-
+require_relative 'nvec'
 require 'matrix'
 include Math
 
@@ -58,37 +58,6 @@ def initialize(a,h)
 @vec_5 = Vector[0.0,a,0.0]           # Fußpunkt oben rechts
 @vec_6 = Vector[a/2,a/2,0.0]         # Mittelpunkt der Grundfläche
 end
-
-### Normalenvektorenberechnungen für die Beleuchtung
-# v and w are Vectors (see http://www.ruby-doc.org/core/classes/Vector.html, http://gpwiki.org/index.php/MathGem:Vector_Operations#Ruby); ruby needs require 'matrix'
-# 0 -> x, 1 -> y, 2 -> z
-def cross( v, w )
-    x = v[1]*w[2] - v[2]*w[1]
-    y = v[2]*w[0] - v[0]*w[2]
-    z = v[0]*w[1] - v[1]*w[0]
-    Vector[x,y,z]
-end
-
-# v is a Vector (see http://www.ruby-doc.org/core/classes/Vector.html); ruby needs require 'matrix'
-def length(v)                        # Betrag des Vektors
-  sqrt( v[0]**2 + v[1]**2 + v[2]**2 )
-end
-
-
-# v is a Vector (see http://www.ruby-doc.org/core/classes/Vector.html); ruby needs require 'matrix'
-def normalize(v)                     # umwandeln in Einheitsvektor 
-  len = length(v)
-  Vector[v[0]/len,v[1]/len,v[2]/len]
-end
-
-# hopefully correct, nore
-def n_vec(a,b,c)                     # Normalenvektor als Einheitsvektor
-	v = c - a
-	w = a - b		
-	n = cross(v,w)
-  normalize(n)
-end
-
 
 def draw_lines	
 glBegin(GL_LINES)	

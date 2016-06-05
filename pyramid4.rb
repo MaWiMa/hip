@@ -3,8 +3,7 @@
 # Norbert Reschke 
 # s. pyrcalc.rb
 
-require_relative 'pyrcalc'           # ruby 1.9.3
-
+require_relative 'pyrcalc'
 require 'opengl'
 require 'glu'
 require 'glut'
@@ -98,49 +97,6 @@ end
 ############ keyboard actions
 keyboard = Proc.new do|key, x, y|
  case (key)
-=begin
-  when ?a,?A
-   puts "Neue Kantenlänge a eingeben:"
-   input = $stdin.gets.chomp  
-   puts "input #{input}"
-   if input.to_f === 0.0 then
- 	a = a
- 	elsif input.to_f > 0 then
-	a = input.to_f
-	else
-	puts "ERROR on input"
-	exit
-    end
-   puts "a => #{a}"
-   puts "h => #{h}"
-   zoom = -3.0 *a
-   x_rot = -90.0
-   z_rot = -130.0 
-   pyr = Pyramid.new(a,h)
-   pyr.output
-   glutPostRedisplay	
-
-  when ?h,?H
-   puts "Neue Höhe h eingeben:"
-   input = $stdin.gets.chomp  
-   puts "input #{input}"
-   if input.to_f === 0.0 then
- 	h = h
- 	elsif input.to_f > 0 then
-	h = input.to_f
-	else
-	puts "ERROR on input"
-	exit
-    end
-   puts "a => #{a}"
-   puts "h => #{h}"
-   zoom = -3.0 *a
-   x_rot = -90.0
-   z_rot = -130.0 
-   pyr = Pyramid.new(a,h)
-   pyr.output
-   glutPostRedisplay	  
-=end
   when ?s,?S,?-                         #reduziere die Höhe
    if h > 0.01 then
 	h = h-0.1*h
@@ -239,8 +195,6 @@ glutDisplayFunc(display)
 glutReshapeFunc(reshape)
 glutKeyboardFunc(keyboard)
 glutSpecialFunc(special)             # rechts,links,hoch...
-#glutMouseFunc(mouse)
-#glutIgnoreKeyRepeat(0)              # 0 multi;1 einmal
 
 init
 glutMainLoop()
