@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # encoding: utf-8
-# pyrcalc.rb, zuletzt geändert 2013-01-28
-# Norbert Reschke 1988 - 2013 [s. README]
+# pyrcalc.rb
+# Norbert Reschke [s. README]
 #
 # Berechnung des Kantenwinkels ω am Grat einer geraden Pyramide mit quadratischer Grund-
 # fläche [s. Skizzen in images/Pyramide_rechnerische_Ermittlung_omegas.pdf]. Eine Pyramide
@@ -114,7 +114,6 @@ end
 def draw_omega
 glBegin(GL_TRIANGLES)
 # OIFL Innenfläche des Winkels Omega auf der linken Seite
-#r,g,b = 0.4,0.4,1                     # blau
 r,g,b = 205.0/256,55.0/256,1.0/256   # braun
 glColor(r,g,b,1.0)
 glNormal(n_vec(@vec_G,@vec_3,@vec_6).to_a)
@@ -127,7 +126,6 @@ end
 # Westen (linke Seite s. Omega)
 def draw_triangle_west
 glBegin(GL_TRIANGLES)
-#r,g,b = 72.0/256,118.0/256,255.0/256 # blau
 r,g,b = 244.0/256,164.0/256,96.0/256  # braun
 glColor(r,g,b,1.0)
 glNormal(n_vec(@vec_1,@vec_2,@vec_3).to_a)
@@ -139,7 +137,6 @@ end
 
 def draw_triangle_south
 glBegin(GL_TRIANGLES)
-#r,g,b = 72.0/256,118.0/256,255.0/256 # blau
 r,g,b = 244.0/256,164.0/256,96.0/256  # braun
 glColor(r,g,b,1.0)
 glNormal(n_vec(@vec_1,@vec_3,@vec_4).to_a)
@@ -151,7 +148,6 @@ end
 
 def draw_triangle_east
 glBegin(GL_TRIANGLES)
-#r,g,b = 72.0/256,118.0/256,255.0/256 # blau
 r,g,b = 244.0/256,164.0/256,96.0/256  # braun
 glColor(r,g,b,1.0)
 glNormal(n_vec(@vec_1,@vec_4,@vec_5).to_a)
@@ -163,7 +159,6 @@ end
 
 def draw_triangle_north
 glBegin(GL_TRIANGLES)
-#r,g,b = 72.0/256,118.0/256,255.0/256 # blau
 r,g,b = 244.0/256,164.0/256,96.0/256  # braun
 glColor(r,g,b,1.0)
 glNormal(n_vec(@vec_1,@vec_5,@vec_2).to_a)
@@ -175,8 +170,6 @@ end
 
 ### Grundfläche
 def draw_grund
-#r,g,b = 176.0/256,225.0/256,255.0/256
-#r,g,b = 0.2,0.1,0.9                 # blau
 r,g,b = 50.0/256,50.0/256,50.0/256   # braun
 glColor(r,g,b,1.0)
 glBegin(GL_QUADS)
@@ -218,15 +211,6 @@ puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
 printf "| %-25s | %+3s | %20.12f |\n","Kantenwinkel","ω",@omega
 puts "+"+"-"*27+"+"+"-"*5+"+"+"-"*22+"+"
 
-=begin
-puts "Vektor am Grad #{@vec_G}"
-puts "Vektor 1 #{@vec_1}"
-puts "Vektor 2 #{@vec_2}"
-puts "Vektor 3 #{@vec_3}"
-puts "Vektor 4 #{@vec_4}"
-puts "Vektor 5 #{@vec_5}"
-puts "Vektor 6 #{@vec_6}"
-=end
 end
 
 end
