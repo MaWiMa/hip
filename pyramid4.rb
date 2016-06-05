@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 # encoding: utf-8
-# Norbert Reschke 2010-08-20, 2010-12-29, 2011-02-06, 2011-11-01, 2012-10-01, 2012-10-15, 2012-11-02, 2013-01-10
+# Norbert Reschke 
 # s. pyrcalc.rb
 
 require_relative 'pyrcalc'           # ruby 1.9.3
@@ -55,15 +55,13 @@ pyr.output
 def init(width=16,height=10)
 glEnable(GL_BLEND)
 glDepthFunc(GL_LEQUAL)
-
 glBlendFunc(GL_SRC_ALPHA,GL_ONE)     # transparent
-
+#glEnable(GL_NORMALIZE)
 glEnable(GL_LIGHTING)
 glEnable(GL_LIGHT0)
-#glEnable(GL_LIGHT1)
-
+glEnable(GL_LIGHT1)
 glEnable(GL_COLOR_MATERIAL)
-glPolygonMode(GL_BACK,GL_LINE)
+#glPolygonMode(GL_BACK,GL_LINE)
 glPolygonMode(GL_FRONT,GL_FILL)
 glMatrixMode(GL_PROJECTION)
 gluPerspective(35.0,width/height,1.0,10000.0)
