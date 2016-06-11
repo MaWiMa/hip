@@ -1,4 +1,4 @@
-# Norbert Reschke 1988, 1993, 1997,2010-08-20, 2010-12-29, 2011-02-06, 2011-11-01, 2012-10-01, 2012-10-15
+# Norbert Reschke 1988, 1993, 1997, 2000, 2010, 2015
 #
 Ziel => Bau einer Pyramide aus Plattenwerkstoff (gerade Pyramide, quadratischer Grundriss)
 #
@@ -13,16 +13,17 @@ Pyramide aus, kanonisch ist die Pyramide, wenn die Spitze der Pyramide im Mittel
 und die Eckpunkte der Grundfläche auf der Oberfläche derselben Kugel liegen, dabei haben
 alle Eckpunkte den gleichen Abstand zum Mittelpunkt der Kugel)
 Kantenwinkel = 1/2 Winkel zwischen je 2 aneinandergrenzenden Pyramidenseiten, die Seiten stoßen
-am Grat aufeinander. Für die Praxis heißt das, die Platten sind an ihren Kantenflächen verbunden,
-nur eine Haarfuge ist außen (ggf. auch innen) sichtbar!
+am Grat aufeinander.
+In der Praxis heißt das, die Platten sind an ihren Kantenflächen verbunden,
+nur eine Haarfuge ist außen und innen sichtbar!
 #
 Problematisierung => Eingrenzung des Wertebereiches.
 Die Hände dienen als Modell zweier aneinandergrenzender Pyramidenseiten.
 Die Extremwerte lassen sich mit einer unendlich hohen Pyramide und einer Pyramide mit gegen Null strebender Höhe erfassen.
 #
 Fragen zur Problematisierung =>
-Welche(n) Kantenwinkel hat eine unendlich hohe Pyramide?
-Welche(n) Kantenwinkel hat eine extrem flache Pyramide?
+Welchen Kantenwinkel hat eine unendlich hohe Pyramide?
+Welchen Kantenwinkel hat eine flache Pyramide mit der Höhe Null?
 #
 Verständniskontrollfragen =>
 Ist der Kantenwinkel jeder Pyramide (unabhängig von der Höhe) immer gleich groß?
@@ -42,13 +43,13 @@ Berechnung von schiefen Pyramiden
 #
 ###################################################################
 ## zeitlicher Verlauf
-1988, Ein Freund (H.A.) gib bei mir einen pyramidenförmigen Schrank in Auftrag.
+1988, Ein Freund (H.A.) gibt bei mir einen pyramidenförmigen Schrank in Auftrag.
 Pyramiden entsprechen dem Zeitgeist (s. Louvre), so werden zu dieser Zeit von Tischlern sehr häufig
 Pyramidenboxen gebaut. Mich interressierte damals vor allem die saubere konstruktive Lösung der Herstellung.
 Nachfragen bei Gesellen, Meister und Berufsschullehrern mit denen ich zu dieser Zeit in Kontakt stand
 halfen mir bei der Konstruktion nicht weiter.
-Ich baue für H.A. ein pyramidenförmiges Schränkchen (Die Maße erinnere ich nicht, ich gehe davon aus mich
-an die Relationen der Cheopspyramide gehalten. So müsste die Pyramide eine Kantenlänge
+Ich baue für H.A. ein pyramidenförmiges Schränkchen (Die Maße erinnere ich nicht, ich gehe davon aus, mich
+an die Relationen der Cheopspyramide gehalten zu haben. So müsste die Pyramide eine Kantenlänge
 von 500mm und eine Höhe von 320mm (gehabt) haben. 1/4 der Pyramide war, als Tür entlang der Höhe einer Seite,
 aufklappbar. Problemlösung rechnerisch mittels Winkelfunktion und Satz des Pythagoras. Mir erschien damals
 die rechnerische Lösung einfacher und anschaulicher als die zeichnerische Lösung. Nach der erfolgreichen Lösung
@@ -64,7 +65,7 @@ Ich hielt das Problem für besonders geeignet Expertenwissen zu veranschaulichen
 Papiermodell (gefaltet und eingeschnitten), Berechnung per Taschenrechner (wie 1988, jedoch ohne Vektorrechnung)
 Ich hielt das Problem für immer noch für besonders geeignet Expertenwissen zu veranschaulichen, dem war wieder
 nicht so.
-Folgestunde zeichnerische Ermittlung. Umklappung selbst erarbeitet da mir die gesichtete
+Folgestunde zeichnerische Ermittlung. Umklappung selbst erarbeitet, da mir die gesichtete
 Holzbearbeitungsliteratur nicht ausreichend nachvollziehbar anschaulich war.
 Seit dieser Zeit arbeite ich immer wieder daran das Problem zu veranschaulichen.
 ##
