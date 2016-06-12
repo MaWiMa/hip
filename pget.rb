@@ -66,10 +66,10 @@ glDepthFunc(GL_LEQUAL)
 glBlendFunc(GL_SRC_ALPHA,GL_ONE)     # transparent
 #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
 glEnable(GL_LIGHTING)
-glEnable(GL_LIGHT0)
+#glEnable(GL_LIGHT0)
 glEnable(GL_LIGHT1)
-glEnable(GL_DEPTH_TEST)
-glClearDepth(1.0)
+#glEnable(GL_DEPTH_TEST)
+glClearDepth(0.5)
 glEnable(GL_COLOR_MATERIAL)
 #glPolygonMode(GL_BACK,GL_LINE)
 glPolygonMode(GL_FRONT,GL_FILL)
@@ -112,28 +112,31 @@ if $web
 pyr.draw_base_lines
 pyr.draw_height
 pyr.draw_surface_lines
-
 else
 pyr.draw_surface
 pyr.draw_base
+glutPostRedisplay	
 end
 
 	
 if $plane
 pyr.draw_plane
 else
+pyr.draw_plane
 pyr.draw_omega_plane
+glutPostRedisplay	
 end
 
 if $modell
 pyr.draw_surface
 pyr.draw_base
+glutPostRedisplay	
 end
 
 glutSwapBuffers
 end
 ###
-
+	
 ############ keyboard actions
 keyboard = Proc.new do|key, x, y|
  case (key)
