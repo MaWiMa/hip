@@ -2,8 +2,7 @@
 # encoding: utf-8
 # Norbert Reschke s. pmath.rb
 
-require_relative 'pmath'           # ruby 1.9.3
-
+require_relative 'pmath'
 require 'opengl'
 require 'glu'
 require 'glut'
@@ -52,41 +51,32 @@ end
 
 ###
 x_rot = -70.0		                 # x Variable für glRotate(); Rotationsstartwinkel um die X-Achse
-y_rot = 0.0		                     # y Variable für glRotate(); Rotationsstartwinkel um die y-Achse
-z_rot = 90.0		                 # z Variable für glRotate(); Rotationsstartwinkel um die Z-Achse
+y_rot =  -3.5	                     # y Variable für glRotate(); Rotationsstartwinkel um die y-Achse
+z_rot =  90.0		                 # z Variable für glRotate(); Rotationsstartwinkel um die Z-Achse
 
 ###
 maxh = 10000
 pyr = Pyramid.new(n,a,h)
-zoom = -5.5*pyr.r                    # keyboard n,N; i,I;o,O 
+zoom = -3.5*pyr.r                    # keyboard n,N; i,I;o,O 
 pyr.output
 
 def init(width=16,height=10)
-#glClearColor(red,green,blue,alpha)	# Hintergrundfarbe alpha 0.0 -> transparent;alpha 1.0 -> undurchsichtig
-glClearColor(0.0,0.0,0.0,0.0)		# Hintergrundfarbe schwarz
-
 glEnable(GL_BLEND)
-glBlendFunc(GL_SRC_ALPHA,GL_ONE) # transparent
+glDepthFunc(GL_LEQUAL)
+glBlendFunc(GL_SRC_ALPHA,GL_ONE)     # transparent
 #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
-glEnable(GL_DEPTH_TEST)
-glClearDepth(1.0)
-glEnable(GL_LIGHTING)		# Lighting, Beleuchtung
-#glColorMaterial( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE )
+glEnable(GL_LIGHTING)
 glEnable(GL_LIGHT0)
 glEnable(GL_LIGHT1)
-
+glEnable(GL_DEPTH_TEST)
+glClearDepth(1.0)
 glEnable(GL_COLOR_MATERIAL)
-glPolygonMode(GL_FRONT_AND_BACK, GL_FILL) # Front- und Rückseite sichtbar 
-
-#
-# Viewing
+#glPolygonMode(GL_BACK,GL_LINE)
+glPolygonMode(GL_FRONT,GL_FILL)
 glMatrixMode(GL_PROJECTION)
-gluPerspective(35.0,width/height,0.1,10000.0)
+gluPerspective(40.0,width/height,1.0,1000.0)
 glMatrixMode(GL_MODELVIEW)
-glEnable(GL_LINE_SMOOTH)
-glEnable(GL_POINT_SMOOTH)
-glEnable(GL_POLYGON_SMOOTH)
-glShadeModel(GL_SMOOTH)
+glLoadIdentity
 end
 
 reshape = lambda do |width,height|
@@ -112,27 +102,34 @@ glutPostRedisplay
 #pyr.draw_section_plane_lines
 #pyr.draw_base
 #pyr.draw_surface
-pyr.draw_triangles
-pyr.draw_plane
-=begin
-if $spiderweb
-pyr.draw_lines
+#pyr.draw_triangles
+#pyr.draw_plane
+#pyr.draw_omega_plane
+
+glEnable(GL_BLEND)
+ 
+if $web
+pyr.draw_base_lines
+pyr.draw_height
+pyr.draw_surface_lines
+
 else
-pyr.draw_lines
-end
-
-
-if $plane
-pyr.draw_Ebene
-else
-pyr.draw_lines
-end
-
-if $base
+pyr.draw_surface
 pyr.draw_base
 end
-=end
-glEnable(GL_BLEND)
+
+	
+if $plane
+pyr.draw_plane
+else
+pyr.draw_omega_plane
+end
+
+if $modell
+pyr.draw_surface
+pyr.draw_base
+end
+
 glutSwapBuffers
 end
 ###
@@ -176,6 +173,15 @@ keyboard = Proc.new do|key, x, y|
 		when ?p,?P
 			$plane = !$plane
 			glutPostRedisplay				
+
+		when ?w,?W
+			$web = !$web
+			glutPostRedisplay				
+
+		when ?m,?M
+			$modell = !$modell
+			glutPostRedisplay				
+
 
 		when ?n,?N                   #zoom Ausgangsperspektive
 			zoom = -3.5*pyr.r
