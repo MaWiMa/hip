@@ -187,7 +187,7 @@ end
 glutInit
 glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE)
 #glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
-glutInitWindowSize(700,700)
+glutInitWindowSize(1000,1000)
 glutInitWindowPosition(0, 0)
 #glutCreateWindow("gerade Pyramide mit quadratischer Grundfläche") # Probleme mit Umlauten
 glutCreateWindow("canonical pyramid with quadratic base area")     # broken denglisch, maybe
