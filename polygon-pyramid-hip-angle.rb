@@ -49,7 +49,7 @@ omega = atan(m * h_gM**-1)
 
 puts "-----"
 puts "Polygon mit regelmäßiger #{n}-eck-Fläche"
-puts "Skizze s. images/polygon-pyramid-hip-angle.svg"
+puts "Skizze s. images/polygon-pyramid-hip-angle.png"
 puts "-----"
 puts "Seitenlänge, a: #{a}"	
 puts "Höhe, h: #{h}"	
