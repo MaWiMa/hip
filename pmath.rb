@@ -103,7 +103,7 @@ glColor(r,g,b,1.0)
 glEnd
 end
 
-def draw_section_plane_lines
+def draw_omega_plane_lines
 glLineWidth(2)
 glBegin(GL_LINES)	
 r,g,b = 0.6,0.6,0.6   #grey
@@ -117,6 +117,22 @@ glVertex(@vec_G)
 glVertex(@vec_ME2)
 glVertex(@vec_G)  
  
+# Winkelebene, Mittellinie von M zu Kopfpunkt 
+glVertex(@vec_M) 
+glVertex(@vec_G) 
+
+# Winkelebene, untere Linie von Fußpunkt 1 zu 2 (ME1-M2)
+glVertex(@vec_ME1)
+glVertex(@vec_ME2)
+glEnd
+end
+
+def draw_plane_lines
+glLineWidth(2)
+glBegin(GL_LINES)	
+r,g,b = 0.6,0.6,0.6   #grey
+glColor(r,g,b,1.0)	
+
 # Winkelebene, Mittellinie von M zu Kopfpunkt 
 glVertex(@vec_M)  # Fußpunkt M
 glVertex(@vec_GE) # Schnittpunkt h_gM mit Strecke (GE1-GE2)
@@ -143,7 +159,6 @@ def draw_base
 r,g,b = 0.7,0.7,0.7   #grey
 glColor(r,g,b,1.0)
 glBegin(GL_POLYGON)
-#glNormal(n_vec(Vector[@base[-1][0],@base[-1][1],@base[-1][2]], Vector[@base[-2][0],@base[-2][1],@base[-2][2]],Vector[@base[-3][0],@base[-3][1],@base[-3][2]]).to_a)
 glNormal(n_vec(Vector[@base[0][0],@base[0][1],@base[0][2]], Vector[@base[1][0],@base[1][1],@base[1][2]],Vector[@base[2][0],@base[2][1],@base[2][2]]).to_a)
  for i in (0..@n-1)
  glVertex(@base[i-1])   
@@ -246,4 +261,3 @@ opline(1)
 end
 
 end
-
