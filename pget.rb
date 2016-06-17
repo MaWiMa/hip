@@ -26,14 +26,17 @@ puts "Pyramide mit der Grundfläche eines regelmäßigen Polygons"
 puts "Bitte geben Sie drei sinnvolle Parameter an!"
 puts "Notation: <#{__FILE__}> <Anzahl der Ecken des Polygons> <Kantenlänge einer Grundseite> <Höhe der Pyramide>"
 puts "Beispiel: #{__FILE__} 5 100 50"
-puts ""
 puts "Steuerung per Tastatur nachdem das Grafikfenster den Fokus erhalten hat"
-puts "< s > oder < - >       -> reduzieren die Höhe der Pyramide"
-puts "< b > oder < + >       -> vergrößern die Höhe der Pyramide"
-puts "< n >                  -> Zoom in die Ausgangsperspektive"
-puts "< o >                  -> Zoom-Out"
-puts "< i >                  -> Zoom-In"
-puts "up, down, left, right  -> drehen der Pyramide"
+puts "up, down, left, right  -> turn pyramid"
+puts "< s > oder < - >       -> reduce height height of pyramid"
+puts "< b > oder < + >       -> increase height of pyramid"
+puts "< n >                  -> zoom to start-placement"
+puts "< o >                  -> zoom out"
+puts "< i >                  -> zoom-in"
+puts "< w >                  -> toggles pyramidweb plus omega-plane and surface plus omega-plane"
+puts "< p >                  -> show plane which cuts the pyramid"
+puts "< e >                  -> show base of the pyramid"
+puts "< m >                  -> show triangles of surface which touch omega-plane "
 puts "< esc >                -> Exit"
 exit
 end
@@ -62,21 +65,22 @@ pyr.output
 
 def init(width=16,height=10)
 glEnable(GL_BLEND)
-glDepthFunc(GL_LEQUAL)
+#glEnable(GL_DEPTH_TEST)
+#glDepthFunc(GL_LEQUAL)
 glBlendFunc(GL_SRC_ALPHA,GL_ONE)     # transparent
 #glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) # Opak
 glEnable(GL_LIGHTING)
 #glEnable(GL_LIGHT0)
 glEnable(GL_LIGHT1)
-#glEnable(GL_DEPTH_TEST)
-glClearDepth(0.5)
+glClearDepth(1.0)
 glEnable(GL_COLOR_MATERIAL)
 #glPolygonMode(GL_BACK,GL_LINE)
 glPolygonMode(GL_FRONT,GL_FILL)
 glMatrixMode(GL_PROJECTION)
-gluPerspective(40.0,width/height,1.0,1000.0)
+gluPerspective(35.0,width/height,1.0,1000.0)
 glMatrixMode(GL_MODELVIEW)
 glLoadIdentity
+#glClear(GL_DEPTH_BUFFER_BIT)
 end
 
 reshape = lambda do |width,height|
@@ -94,43 +98,59 @@ glRotate(z_rot,0.0,0.0,1.0)	# um die Z-Achse drehen
 glutPostRedisplay	
 
 
-
-### draw everything 
-#pyr.draw_base_lines
-#pyr.draw_height
-#pyr.draw_surface_lines
-#pyr.draw_section_plane_lines
-#pyr.draw_base
-#pyr.draw_surface
-#pyr.draw_triangles
-#pyr.draw_plane
-#pyr.draw_omega_plane
-
-glEnable(GL_BLEND)
- 
-if $web
+if !$sample
 pyr.draw_base_lines
 pyr.draw_height
 pyr.draw_surface_lines
-else
+pyr.draw_omega_plane_lines
+pyr.draw_omega_plane
 pyr.draw_surface
 pyr.draw_base
-glutPostRedisplay	
 end
 
+if $web
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+pyr.draw_base_lines
+pyr.draw_height
+pyr.draw_surface_lines
+pyr.draw_omega_plane_lines
+pyr.draw_omega_plane
+else
+!$sample
+end
+
+if $base
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+pyr.draw_base_lines
+pyr.draw_base
+else
+!$sample
+end
 	
 if $plane
 pyr.draw_plane
-else
-pyr.draw_plane
-pyr.draw_omega_plane
-glutPostRedisplay	
+pyr.draw_plane_lines
 end
 
+if $angle
+pyr.draw_omega_plane
+end
+
+
 if $modell
-pyr.draw_surface
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+pyr.draw_triangles
 pyr.draw_base
-glutPostRedisplay	
+pyr.draw_base_lines
+pyr.draw_height
+pyr.draw_surface_lines
+pyr.draw_omega_plane_lines
+pyr.draw_omega_plane
+
+#else
+#pyr.draw_triangles
+#pyr.draw_base
+
 end
 
 glutSwapBuffers
@@ -169,17 +189,30 @@ keyboard = Proc.new do|key, x, y|
   glutPostRedisplay
   end	
 
-		when ?e,?E
-			$base = !$base
+		when ?a,?A
+			$angle = !$angle 
 			glutPostRedisplay				
+
+		when ?e,?E
+		    if $modell
+			 $modell = !$modell
+			end
+			$base = !$base
+#			glutPostRedisplay				
 
 		when ?p,?P
 			$plane = !$plane
 			glutPostRedisplay				
 
 		when ?w,?W
+			if $base
+			 $base = !$base
+			end
+			if $modell
+			 $modell = !$modell
+			end
 			$web = !$web
-			glutPostRedisplay				
+#			glutPostRedisplay				
 
 		when ?m,?M
 			$modell = !$modell
@@ -197,11 +230,11 @@ keyboard = Proc.new do|key, x, y|
 		when ?o,?O                   #zoom out
 			zoom = zoom -0.09*a
 			glutPostRedisplay	
- puts zoom
+# puts zoom
 		when ?i,?I                   #zoom in
 			zoom = zoom +0.09*a
 			glutPostRedisplay	
-puts zoom
+#puts zoom
 
 		when ?\e                     # Escape key
 		puts "ESC pressed Programm is stopped"		
@@ -218,25 +251,25 @@ special = Proc.new do|key, x, y|
 			else z_rot = -355
 			end
 			glutPostRedisplay
-			puts z_rot
+			#puts z_rot
 		when GLUT_KEY_LEFT
 			if z_rot > -360 then
 			z_rot = z_rot - 5
 			else z_rot = 355
 			end
 			glutPostRedisplay
-			puts z_rot
+			#puts z_rot
 
 		when GLUT_KEY_UP
 			x_rot = x_rot + 1
 			zoom = zoom -h*0.02
-			puts "#{x_rot},  #{zoom},  #{z_rot}"					
+			#puts "#{x_rot},  #{zoom},  #{z_rot}"					
 			glutPostRedisplay
 			
 		when GLUT_KEY_DOWN
 			x_rot = x_rot - 1
 			zoom = zoom +h*0.02
-			puts "#{x_rot},  #{zoom},  #{z_rot}"							
+			#puts "#{x_rot},  #{zoom},  #{z_rot}"							
 			glutPostRedisplay
 	end
 end
@@ -244,7 +277,7 @@ end
 
 glutInit
 glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE)
-glutInitWindowSize(800,800)
+glutInitWindowSize(1000,1000)
 glutInitWindowPosition(0,0)
 glutCreateWindow("canonical pyramid with polygon base area") 
 glutDisplayFunc(display)
