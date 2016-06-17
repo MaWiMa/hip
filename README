@@ -1,5 +1,19 @@
-Norbert Reschke 1988...
-Ermittlung des Kantenwinkels an den Seiten einer Pyramide mit regelmäßiger Grundfläche
+hip (slant edge) angle omega of right pyramid with regular base
+Kantenwinkel an den Seiten einer Pyramide mit regelmäßiger Grundfläche
 
-erster Überblick -> images/PyramideSkizzeOpenGL.pdf
 first impression -> images/PyramideSkizzeOpenGL.pdf
+erster Überblick -> images/PyramideSkizzeOpenGL.pdf
+
+If you like to calculate without graphic output
+start ./polygon-pyramid-hip-angle.rb on commandline
+
+./polygon-pyramid-hip-angle.rb 3 10 20
+returns the values for a pyramid with 3 edges on base, an edge-length of 10 and a height of 20
+
+If you like to get some grafics too, try
+./pyramid4.rb to get some data about a regular square pyramid or
+./pget.rb to play with a regular pyramid from 3 to 99 base edges.
+
+
+Norbert Reschke 1988...
+
