@@ -2,6 +2,6 @@ sources:
 https://github.com/larskanis/opengl/
 https://github.com/larskanis/opengl/blob/master/README.rdoc
 
-archlinux
+If you use archlinux install ruby and freeglut
 pacman -S freeglut
 gem install opengl glu glut
